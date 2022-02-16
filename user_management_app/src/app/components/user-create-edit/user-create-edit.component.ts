@@ -16,15 +16,13 @@ export class UserCreateEditComponent implements OnInit {
   submitted = false;
   isAddMode = true;
   id: any;
-  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService, private appComponent: AppComponent, private customToast: CustomToastrService) { 
-
-    
-    this.userForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      email: new FormControl('',[ Validators.required, Validators.email]),
-      phone: new FormControl('', Validators.required),
-      website: new FormControl('')
-    });
+  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private userService: UserService, private appComponent: AppComponent, private customToast: CustomToastrService) {
+    this.userForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.required],
+      website: ['']
+  });
   }
 
   ngOnInit(): void {
@@ -39,8 +37,8 @@ export class UserCreateEditComponent implements OnInit {
   });
     if (!this.isAddMode) {
       this.userService.getUserById(this.id)
-          .subscribe(x => {
-              this.userForm.patchValue(x);
+          .subscribe(data => {
+              this.userForm.patchValue(data);
           });
     }
   }
@@ -49,7 +47,7 @@ export class UserCreateEditComponent implements OnInit {
     this.userService.registerUser(this.userForm.value)
             .subscribe(
                 data => {
-                    this.customToast.showSuccess('User Registred Successfully.');
+                    this.customToast.showSuccess('User Registered Successfully.');
                     this.resetForm();
                 },
                 error => {
