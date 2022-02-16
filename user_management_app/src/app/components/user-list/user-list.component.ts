@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CustomToastrService } from 'src/app/services/custom-toastr.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 export class UserListComponent implements OnInit {
   @Input() userDetails: any;
   userList: any;
-  constructor(private userService: UserService, private router: Router, private customToast: CustomToastrService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.getUserList();
