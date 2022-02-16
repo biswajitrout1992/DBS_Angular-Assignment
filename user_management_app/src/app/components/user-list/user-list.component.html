@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="card mt-2">
+    <div class="card-header bg-danger">
+      <div class="row">
+        <h4 class="col-6 text-white">List Of Users</h4>
+        <div class="col-6">
+          <a routerLink="/register" class="btn btn-link float-end text-white fw-bold">Register New User</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-4 mt-1" *ngFor="let user of userList">
+          <app-user-card [userDetails]="user" (userEmitter)="receiveUserDetails($event)"></app-user-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

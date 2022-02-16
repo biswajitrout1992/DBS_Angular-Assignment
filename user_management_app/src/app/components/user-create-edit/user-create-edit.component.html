@@ -1,0 +1,45 @@
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-content">
+                <div class="card">
+                    <h4 class="card-header bg-danger text-white">Register</h4>
+                    <div class="card-body">
+                        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="name">Name</label>
+                                    <input type="text" formControlName="name" class="form-control" />
+                                </div>
+                                <div class="form-group col">
+                                    <label for="email">Email</label>
+                                    <input type="email" formControlName="email" class="form-control" />
+                                </div>
+                                <div class="form-group col">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" formControlName="phone" class="form-control" />
+                                </div>
+                                <div class="form-group col">
+                                    <label for="website">Website</label>
+                                    <input type="text" formControlName="website" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-2">
+                                <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid"
+                                    *ngIf="isAddMode">
+                                    Create
+                                </button>
+                                <button class="btn btn-primary" type="button" [disabled]="!userForm.valid"
+                                    (click)="updateUser()" *ngIf="!isAddMode">
+                                    Update
+                                </button>
+                                <a routerLink="/list" class="btn btn-link float-end fw-bold">Goto User List</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
