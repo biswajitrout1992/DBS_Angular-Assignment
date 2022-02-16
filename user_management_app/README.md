@@ -2,7 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 
+# Screenshots
+## List Page
 ![DBS_assignment_list_page](https://user-images.githubusercontent.com/37513786/154252746-ac1180d5-3380-48b3-96db-0e0e9a12f797.jpg)
+
+## Register Page
+![DBS_assignment_register_page](https://user-images.githubusercontent.com/37513786/154253238-b460f3c2-5d64-42f0-b6e0-e653eeee3d2a.jpg)
+
+## Edit Page
+![DBS_assignment_update_page](https://user-images.githubusercontent.com/37513786/154253248-04467697-6c13-4048-8690-4eded9bacf22.jpg)
 
 
 ## Development server
